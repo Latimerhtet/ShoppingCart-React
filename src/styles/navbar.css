@@ -24,6 +24,10 @@ html {
   position: relative;
   border: 2px solid var(--default-color);
 }
+.navbar-cart-btn:hover {
+  background-color: var(--default-color);
+  color: #fff;
+}
 .navbar-logo {
   font-size: 25px;
   color: var(--default-color);

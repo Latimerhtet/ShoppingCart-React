@@ -10,7 +10,7 @@ import morrisW20 from "../assets/MorrisW-20.avif";
 const guitars = [
   {
     id: 1,
-    name: "Yahama FG-122",
+    name: "Yamaha FG-122",
     model: "",
     price: 850,
     img: yamahaFG,

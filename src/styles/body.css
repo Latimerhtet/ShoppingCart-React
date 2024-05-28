@@ -4,13 +4,14 @@
 }
 html {
   --default-color: #625e6e;
+  --search-border-radius: 50%;
 }
 
 .card img {
-  width: 250px;
-  height: 370px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  width: 200px;
+  height: 250px;
+  /* border-top-left-radius: 10px;
+  border-top-right-radius: 10px; */
 }
 .guitars-grid {
   display: flex;
@@ -23,12 +24,18 @@ html {
   margin-bottom: 50px;
 }
 .card {
-  width: 250.5px;
-  height: 550px;
+  width: 240px;
+  height: 480px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  color: var(--default-color);
+  padding: 20px;
+  border: 1px solid var(--default-color);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  cursor: pointer;
 }
 .guitar-name-price {
   padding: 10px;
@@ -36,7 +43,7 @@ html {
 .guitar-price-add {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 }
 .guitar-price-add button {
   padding: 5px;
@@ -45,6 +52,11 @@ html {
   cursor: pointer;
   border-radius: 5px;
   color: #fff;
+}
+.addItemBtn:hover {
+  color: var(--default-color);
+  background-color: #fff;
+  border: 1px solid var(--default-color);
 }
 .plus-minus-item {
   display: flex;
@@ -61,4 +73,29 @@ html {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.searchInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchInput input {
+  width: 600px;
+  padding: 12px 20px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+.searchIcon {
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  background-color: #fff;
+  border-top-right-radius: var(--search-border-radius);
+  border-bottom-right-radius: var(--search-border-radius);
+}
+.searchIcon:hover {
+  color: aquamarine;
 }

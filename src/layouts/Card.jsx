@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import "../styles/body.css";
 import { itemsContext } from "../store/ItemProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 const Card = ({ guitar }) => {
   const { addItem } = useContext(itemsContext);
   const { id, img, name, price } = guitar;
@@ -11,7 +13,7 @@ const Card = ({ guitar }) => {
     setCurrentAmount((pre) => Number(pre) + 1);
   };
   const reduceAmount = () => {
-    if (currentAmountNum >= 1) {
+    if (currentAmountNum > 1) {
       setCurrentAmount((pre) => pre - 1);
     }
   };
@@ -49,7 +51,9 @@ const Card = ({ guitar }) => {
                 <button onClick={reduceAmount}>-</button>
               </div>
             )}
-            <button onClick={addItemHandler}>+ Add</button>
+            <button className="addItemBtn" onClick={addItemHandler}>
+              <FontAwesomeIcon icon={faCartPlus} />
+            </button>
           </div>
         </div>
       </div>

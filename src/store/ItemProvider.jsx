@@ -4,6 +4,7 @@ const ACTIONS = {
   ADD: "add",
   DELETE: "delete",
   ADD_AMOUNT: "addAmount",
+  ORDER: "orderHandler",
 };
 
 const initialState = {
@@ -56,6 +57,11 @@ const reducer = (state, action) => {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
     };
+  } else if (action.type == ACTIONS.ORDER) {
+    return {
+      items: [],
+      totalAmount: 0,
+    };
   }
 };
 
@@ -64,6 +70,7 @@ export const itemsContext = createContext({
   totalAmount: 0,
   addItem: () => {},
   removeItem: () => {},
+  checkout: () => {},
 });
 
 const ItemProvider = ({ children }) => {
@@ -74,12 +81,15 @@ const ItemProvider = ({ children }) => {
   const removeItemHandler = (id) => {
     dispatchItem({ type: ACTIONS.DELETE, id });
   };
-
+  const orderHandler = () => {
+    dispatchItem({ type: ACTIONS.ORDER });
+  };
   const contextValues = {
     items: state.items,
     totalAmount: state.totalAmount,
     addItem: addItemHandler,
     removeItem: removeItemHandler,
+    checkout: orderHandler,
   };
   return (
     <itemsContext.Provider value={contextValues}>

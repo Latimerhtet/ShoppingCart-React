@@ -1,16 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "../styles/index.css";
 import CartItem from "./CartItem";
 import { itemsContext } from "../store/ItemProvider";
 const Cart = ({ handleShowCart }) => {
-  const { items, totalAmount } = useContext(itemsContext);
-
+  const { items, totalAmount, checkout } = useContext(itemsContext);
+  const [confirm, setconfirm] = useState(false);
+  const order = () => {
+    setconfirm(true);
+    checkout();
+  };
   return (
     <div className="cart-grid">
       {items.length == 0 ? (
         <div className="no-items">
-          <p>You haven't added any order yet!</p>
-          <button onClick={handleShowCart}>Let's go back to order</button>
+          {confirm ? (
+            <>
+              <p>Thanks for shopping with Us! Come again to our Store!</p>
+              <button onClick={handleShowCart}>Ok</button>
+            </>
+          ) : (
+            <>
+              {" "}
+              <p>You haven't added any order yet!</p>
+              <button onClick={handleShowCart}>Let's go back to order</button>
+            </>
+          )}
         </div>
       ) : (
         <>
@@ -27,7 +41,7 @@ const Cart = ({ handleShowCart }) => {
           </div>
           <div className="Cart-buttons">
             <button onClick={handleShowCart}>Close</button>
-            <button>Order</button>
+            <button onClick={order}>Order</button>
           </div>
         </>
       )}
