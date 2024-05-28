@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  font-family: "Reddit Sans", sans-serif;
+}
+html {
+  --default-color: #625e6e;
+}
+
+.card img {
+  width: 250px;
+  height: 370px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.guitars-grid {
+  display: flex;
+  gap: 30px;
+  padding: 0 50px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+.card {
+  width: 250.5px;
+  height: 550px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.guitar-name-price {
+  padding: 10px;
+}
+.guitar-price-add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.guitar-price-add button {
+  padding: 5px;
+  border: none;
+  background-color: var(--default-color);
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+}
+.plus-minus-item {
+  display: flex;
+  gap: 5px;
+}
+.plus-minus-item button {
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+.plus-minus-item input {
+  width: 25px;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
